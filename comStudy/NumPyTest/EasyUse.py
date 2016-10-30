@@ -14,18 +14,32 @@
 #Numpy数组的维数称为秩(rank)，一维数组的秩为1，二维数组的秩为2，以此类推，在numpy中，每一个线性
 #的数组称为一个轴(axes)，秩其实就是轴的数量。
 #NumPy里面比较重要ndarray对象的属性：
-#ndarry.ndim:数组维数（即数组的轴个数）
+#ndarry.ndim:数组维数（即数组的轴个数），等于秩。
 #ndarry.shape 数组的维数，为了表示数组在每个维度上大小的整数元组。
 #	例如二维数组中，表示数组的“行数”和“列数”。ndarray.shape返回一个元组。
 #ndarray.size 数组元素的总个数，等于shape属性中元素的乘积。
 #函数库的导入
 import numpy as np
+from numpy import *
 
+#数组创建时使用[]，注意[]的里面，以及shape的使用
+#数组的维，其实就是数组里面套的数组的层数
+
+#使用array函数从常规的python列表和元组创造数组，
+#所创建的数组类型有原序列中的元素类型推导而来。
 #array函数的使用
 a = np.array([1,2,3,4])
 b = np.array((5,6,7,8))#注意格式与上面不一样
 #创建多维函数
 c=np.array([[1,2,3,4],[4,5,6,7],[7,8,9,10]])
+
+#用函数zeros可创建一个全是0的数组就，用函数ones可以
+#创建一个全是1的数组，函数empty创建一个内容随机并且
+#依赖内存状态的数组。
+print "打印zero函数的信息："
+d=zeros([3,4])
+print d.shape[0]
+
 
 def printArray():
 	#数组a的shape只有一个元素，因此它是一维数组，而数组
@@ -36,8 +50,12 @@ def printArray():
 	#注：当某个轴的元素为-1时，将根据数组元素的个数自动计算此轴的长度，
 	#使用数组的reshape方法，可以创建一个改变了尺寸的新数组，原数组的shape
 	#保持不变。
+	print "打印数组的shape属性："
 	print a.shape
 	print c.shape
+
+	print "打印shape[0]:(数组的第一维长度）"
+	print a.shape[0]
 	c.shape=4,3
 	print c
 	
@@ -67,5 +85,6 @@ if __name__=='__main__':
 	print a
 	print b
 	print c
+	print d
 	#属性打印测试
 	printArray()

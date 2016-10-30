@@ -23,16 +23,22 @@ def createDataSet():
     return group,labels
 #classify using kNN
 def kNNClassify(newInput,dataSet, labels,k):
+    #数组的一维长度--
     numSamples=dataSet.shape[0]#shape[0] stands for the number of row
     ##step 1:calculate Euclidean distance
     #tile(A,reps):Constract an array by repeating A reqs times
     #the following copy numSamples rows for dataSet
+
+    #以下是计算待分类的点和训练集中的任一点的欧式距离
+    #tile函数位于python模块 numpy.lib.shape_base中，功能是重复某个数组
+    #例如tile(A,n),功能是将数组A重复n次，构成一个新的数组
     diff =tile(newInput,(numSamples,1))-dataSet#Subtract element-wise
     squaredDiff=diff**2 #squared for dataSet
     squaredDist=sum(squaredDiff,axis=1)#sum is performed by row
     distance=squaredDist**0.5
     ##step2: sort the distance
     #argsort() returns the indices that  would sort an array in ascending  orfer
+    #下面是一些统计工作
     sortedDistIndices=argsort(distance)
 
     classCount={}#define a dictionary (can be append element)
