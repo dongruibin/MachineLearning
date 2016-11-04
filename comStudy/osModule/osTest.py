@@ -29,6 +29,10 @@ os.system('echo $var')
 
 import sys
 if __name__=="__main__":
+	#测试一些必要选项
+	print os.name
+	print os.getcwd()#获取当前的路径
+
 	print os.path.realpath(sys.argv[0])
 	print os.path.split(os.path.realpath(sys.argv[0]))
 	print os.path.split(os.path.realpath(sys.argv[0]))[0]
