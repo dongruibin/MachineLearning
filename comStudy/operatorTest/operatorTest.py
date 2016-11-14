@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+#运算符模块
 #本模块主要是讲解operator模块使用
 import operator
 a=[1,2,3,4]
