@@ -43,7 +43,7 @@ def kNNClassify(newInput,dataSet, labels,k):
     print "显示一下squaredDiff的值："
     print squaredDiff
 
-    squaredDist=sum(squaredDiff,axis=1)#sum is performed by row
+    squaredDist=sum(squaredDiff,axis=1)#sum is performed by row#按行求和
     distance=squaredDist**0.5
     ##step2: sort the distance
     #argsort() returns the indices that  would sort an array in ascending  orfer
